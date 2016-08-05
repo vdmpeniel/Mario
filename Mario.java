@@ -2,6 +2,7 @@ package mario;
 import java.io.*;
 import java.util.*;
 
+//Let us build a half pyramid for our friend Mario!
 public class Mario {
     
     public static String repeatChar(int num, char ch){
@@ -13,12 +14,12 @@ public class Mario {
         return mult.toString();
     }
     
-    public static void createPiramid(int num){
-        String piramidLn;
+    public static void createPyramid(int num){
+        String pyramidLn;
         int wSpaces = num;
         do{
-            piramidLn = repeatChar(wSpaces, ' ');
-            piramidLn += repeatChar(num - wSpaces + 2, '#'); 
+            pyramidLn = repeatChar(wSpaces, ' ');
+            pyramidLn += repeatChar(num - wSpaces + 2, '#'); 
             System.out.println(piramidLn);
         }while( --wSpaces > 0);        
     }
@@ -29,7 +30,7 @@ public class Mario {
         
         //input and input validation
         do{
-            System.out.print(" Enter the size of your half piramid: ");
+            System.out.print(" Enter the size of your half pyramid: ");
             n = in.nextInt();
         }while(n < 0 || n > 23);
         
@@ -39,6 +40,6 @@ public class Mario {
     
     public static void  main(String[] args){
         int height = getInput();      
-        createPiramid(height);
+        createPyramid(height);
     }  
 }
