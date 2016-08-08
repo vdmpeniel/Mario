@@ -1,13 +1,11 @@
 package mario;
-/*  This commit is al about separating UX from 
- *  the pyramid reation and implementing the 
- *  Strategy Design Pattern.
- *  Comments are also going to be added
- */ 
+import mario.outputStrategies.FileOutputStrategy;
+
 public class Mario {
     public static void  main(String[] args){
         UserInterface ui = new UserInterface();
-        Pyramid py = new Pyramid(ui.inputHeight(),ui.inputOutputMethod()); 
-        py.output();
+        Pyramid py = new Pyramid(ui.inputHeight());        
+        if(ui.inputOutputMethod() == 1) { py.setOutputStrategy(new FileOutputStrategy()); }
+        py.postOutput();
     }
 }

@@ -1,29 +1,24 @@
 package mario;
-import java.io.*;
 import java.util.List;
 import java.util.ArrayList;
+import mario.outputStrategies.*;
 
 public class Pyramid {
+    // GLOBAL PROPERTIES
     private List<String> pyramid = new ArrayList();
     private int mHeight;  
-    private int mOutputMethod;
+    private OutputStrategy outputStrategy = new PrintOutputStrategy();
     
+    //METHODS:
     public int getHeight(){
         return mHeight;
     }
     
-    public int getOuputMethod(){
-        return mOutputMethod;
-    } 
-    
-    
-    public Pyramid(int height, int outputMethod){        
-        mHeight = height;
-        mOutputMethod = outputMethod;        
+    public Pyramid(int height){        
+        mHeight = height;          
         setPyramid();
     }
        
-    
     private void setPyramid(){
         // Creating the pyramid and puting it into the pyramid ArrayList
         int wSpaces = mHeight;
@@ -45,35 +40,22 @@ public class Pyramid {
     }
     
 
-    private void filePyramid() {   
-        // Saving the pyramid collection in a text file
-        File file = new File("pyramid.txt"); 
-        try(PrintWriter out = new PrintWriter(file);) { //This is what is called as a try with resources, in which files do not have to be closed.
-            for (String line : pyramid) {
-                out.println(line);
-            }
-            System.out.println("Your pyramid was saved into pyramid.txt");
-        } catch (IOException e) {
-            System.out.println("There was an error trying to write the pyramid to a file!");
-            System.out.println(e.getMessage());
-        } 
-    }
-
-    private void printPyramid(){
-        // Printing the pyramid collection
-        for(String line : pyramid) {
-            System.out.println(line);
-        }
+    public void setOutputStrategy(OutputStrategy outputStrategy){
+        this.outputStrategy = outputStrategy;
     }
     
-    public void output(){
-        // Selecting the output method.
-        if (mOutputMethod == 0) {
-            printPyramid();
-        }else {
-            filePyramid();
-        }
-    }     
+    public void postOutput(){
+        outputStrategy.output(pyramid);
+    }
+    
+//    public void output(){
+//        // Selecting the output method.
+//        if (mOutputMethod == 0) {
+//            printPyramid();
+//        }else {
+//            filePyramid();
+//        }
+//    }     
     
 
 }
