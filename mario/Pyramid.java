@@ -25,6 +25,7 @@ public class Pyramid {
        
     
     private void setPyramid(){
+        // Creating the pyramid and puting it into the pyramid ArrayList
         int wSpaces = mHeight;
         String pyramidLn;
         do{
@@ -44,9 +45,10 @@ public class Pyramid {
     }
     
 
-    private void filePyramid() {        
-        File file = new File("pyramid.txt");        
-        try(PrintWriter out = new PrintWriter(file);) {            
+    private void filePyramid() {   
+        // Saving the pyramid collection in a text file
+        File file = new File("pyramid.txt"); 
+        try(PrintWriter out = new PrintWriter(file);) { //This is what is called as a try with resources, in which files do not have to be closed.
             for (String line : pyramid) {
                 out.println(line);
             }
@@ -58,12 +60,14 @@ public class Pyramid {
     }
 
     private void printPyramid(){
+        // Printing the pyramid collection
         for(String line : pyramid) {
             System.out.println(line);
         }
     }
     
     public void output(){
+        // Selecting the output method.
         if (mOutputMethod == 0) {
             printPyramid();
         }else {

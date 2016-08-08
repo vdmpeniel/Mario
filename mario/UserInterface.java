@@ -8,6 +8,7 @@ public class UserInterface {
     private int outputMethod = 0;
     
     private int getInput(){
+        // General input method 
         int n = 0;
         try{
             Scanner in = new Scanner(System.in);            
@@ -19,6 +20,7 @@ public class UserInterface {
     }
     
     public int inputOutputMethod(){
+        // Getting input method from user; think of a better name
         do {
             System.out.println("How do you want your pyramid?");
             System.out.println("0 - For on the screen output.");
@@ -29,9 +31,9 @@ public class UserInterface {
         return outputMethod;
     }
     
-    public int inputHeight(){
+    public int inputHeight(){        
+        // Height input and input validation
         int n;
-        //height input and input validation
         do{
             System.out.println("Enter the size of your half pyramid(1 - 23): ");
             System.out.print(">> ");
