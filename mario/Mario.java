@@ -7,6 +7,5 @@ public class Mario {
         Pyramid py = new Pyramid(ui.inputHeight()); // Creating pyramid       
         if(ui.inputOutputMethod() == 1) { py.setOutputStrategy(new FileOutputStrategy()); } // Setting output method if different than printing
 	py.postOutput(); // Outputting the pyramid, using the method selected 
-
     }
 }

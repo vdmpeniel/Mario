@@ -1,9 +1,11 @@
 package mario;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.Scanner;
 
 public class UserInterface {
-    private int outputMethod;
+    private int height = 0;
+    private int outputMethod = 0;
     
     private int getInput(){
         // General input method 

@@ -17,5 +17,6 @@ public class FileOutputStrategy implements OutputStrategy{
             System.out.println("There was an error trying to write the pyramid to a file!");
             System.out.println(e.getMessage());
         }
-    }    
+    }
+    
 }
