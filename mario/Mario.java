@@ -1,3 +1,4 @@
+//THIS IS THE COMMIT FOR FIXED CONFLICTS
 package mario;
 import mario.outputStrategies.FileOutputStrategy;
 
