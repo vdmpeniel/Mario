@@ -1,12 +1,13 @@
 //THIS IS THE COMMIT FOR FIXED CONFLICTS
 package mario;
-import mario.outputStrategies.FileOutputStrategy;
+import mario.pyramidFactory.Pyramid;
+
 
 public class Mario {
     public static void  main(String[] args){
         UserInterface ui = new UserInterface(); // Calling UI
-        Pyramid py = new Pyramid(ui.inputHeight()); // Creating pyramid       
-        if(ui.inputOutputMethod() == 1) { py.setOutputStrategy(new FileOutputStrategy()); } // Setting output method if different than printing
+        PyramidFactory mariosFactory = new PyramidFactory();
+        Pyramid py = mariosFactory.make(ui.height(), ui.outputMethod());        
 	py.postOutput(); // Outputting the pyramid, using the method selected 
     }
 }

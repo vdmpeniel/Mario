@@ -19,7 +19,7 @@ public class UserInterface {
         return n;
     }
     
-    public int inputOutputMethod(){
+    public int outputMethod(){
         // Getting input method from user; think of a better name
         do {
             System.out.println("How do you want your pyramid?");
@@ -31,7 +31,7 @@ public class UserInterface {
         return outputMethod;
     }
     
-    public int inputHeight(){        
+    public int height(){        
         // Height input and input validation
         int n;
         do{
