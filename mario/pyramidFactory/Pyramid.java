@@ -6,26 +6,26 @@ import mario.outputStrategies.*;
 public abstract class Pyramid {
     // GLOBAL PROPERTIES
     private List<String> pyramid = new ArrayList();
-    private int mHeight;  
+    private int height;  
     private OutputStrategy outputStrategy;
     
     //METHODS:
     public int getHeight(){
-        return mHeight;
+        return height;
     }
     
     public Pyramid(int height){        
-        mHeight = height;          
+        this.height = height;          
         setPyramid();
     }
        
     private void setPyramid(){
         // Creating the pyramid and puting it into the pyramid ArrayList
-        int wSpaces = mHeight;
+        int wSpaces = height;
         String pyramidLn;
         do{
             pyramidLn = repeatChar(wSpaces, ' ');
-            pyramidLn += repeatChar(mHeight - wSpaces + 2, '#');
+            pyramidLn += repeatChar(height - wSpaces + 2, '#');
             pyramid.add(pyramidLn);
         }while( --wSpaces > 0);
     }
@@ -48,4 +48,7 @@ public abstract class Pyramid {
         outputStrategy.output(pyramid);
     }
     
+    public String toString(){
+        return String.format("This is a pyramid of %s steps of height, ", height);
+    }
 }
