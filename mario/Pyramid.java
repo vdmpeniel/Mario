@@ -39,23 +39,12 @@ public class Pyramid {
         return mult.toString();
     }
     
-
     public void setOutputStrategy(OutputStrategy outputStrategy){
         this.outputStrategy = outputStrategy;
     }
     
     public void postOutput(){
         outputStrategy.output(pyramid);
-    }
-    
-//    public void output(){
-//        // Selecting the output method.
-//        if (mOutputMethod == 0) {
-//            printPyramid();
-//        }else {
-//            filePyramid();
-//        }
-//    }     
-    
+    }   
 
 }
