@@ -48,6 +48,7 @@ public abstract class Pyramid {
         outputStrategy.output(pyramid);
     }
     
+    @Override
     public String toString(){
         return String.format("This is a pyramid of %s steps of height, ", height);
     }
