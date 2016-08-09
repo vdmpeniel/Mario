@@ -1,15 +1,18 @@
-//THIS IS THE COMMIT FOR FIXED CONFLICTS
 package mario;
 public class MariosGame {   
+    MarioSingleton mainCharacter;
+    MariosGame(MarioSingleton mainCharacter){
+        this.mainCharacter = mainCharacter;
+    }
     public static void  main(String[] args){
+        MariosGame newGame = new MariosGame(MarioSingleton.getInstance());
+        newGame.play();
+    }
+    
+    public void play(){
         UserInterface ui;
-        ui = new UserInterface(); // Calling UI
-        
-        MarioSingleton mario = MarioSingleton.getInstance();
-        mario.makePyramid(ui.height(), ui.outputMethod()); 
-        System.out.println("This object have an ID od: " + System.identityHashCode(mario));
-        
-        //MarioSingleton lolo = MarioSingleton.getInstance();
-        //System.out.println("This object have an ID od: " + System.identityHashCode(lolo));
+        ui = new UserInterface(); // Calling UI       
+        mainCharacter.makePyramid(ui.height(), ui.outputMethod()); 
+        //System.out.println("This object have an ID od: " + System.identityHashCode(mario));
     }
 }

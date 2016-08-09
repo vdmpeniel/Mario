@@ -2,7 +2,7 @@ package mario;
 import java.io.*;
 import mario.pyramidFactory.Pyramid;
 
-public class MarioSingleton {
+public class MarioSingleton{
     
     private Pyramid pyramid;
     private PyramidFactory factory = new PyramidFactory();// Creating factory    
