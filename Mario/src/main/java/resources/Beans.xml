@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+        <bean id="game" class="com.vic.Game">
+            <constructor-arg name="mainCharacter" ref="mario"/>
+            <constructor-arg name="ui" ref="textInterface"/>
+        </bean>
+
+        <bean id="textInterface" class="com.vic.UserInterface">
+        </bean>
+
+        <bean id="mario" class="com.vic.Mario" scope="singleton">
+        </bean>
+
+    </beans>
