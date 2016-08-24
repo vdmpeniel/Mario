@@ -31,13 +31,15 @@ public class CoinCalculator {
                 //Creating answer
                 answer.append(div).append(" ").append(coinName);
                 if(div > 1) answer.append("s");
-                answer.append("\n");
+                answer.append(" ");
 
                 //Updating change
                 change = mod;
             }
 
         }
-        return answer.toString();
+
+        if (answer.length() == 0) answer.append("No coins returned");
+        return answer.toString().trim();//eliminate possible spaces at the end
     }
 }

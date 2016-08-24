@@ -9,7 +9,7 @@ public class Greedy {
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
 
-        CoinCalculator coinCalculator = new CoinCalculator(new EuroCoinSet());
+        CoinCalculator coinCalculator = new CoinCalculator(new AmericanCoinSet());
         System.out.println(coinCalculator.calculateChange(input));
     }
 }
