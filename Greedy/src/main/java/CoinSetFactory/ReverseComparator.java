@@ -1,3 +1,5 @@
+package CoinSetFactory;
+
 import java.util.Comparator;
 
 //Reverse sorting order for the coinSet TreeMap

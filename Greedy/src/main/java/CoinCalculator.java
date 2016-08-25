@@ -1,15 +1,18 @@
-import java.security.PublicKey;
+import CoinSetFactory.CoinSet;
+import CoinSetFactory.CoinSetSelector;
+
 import java.util.Map;
 public class CoinCalculator {
     CoinSet coinSet;
     StringBuilder answer = new StringBuilder();
 
-    public CoinCalculator(CoinSet coinSet){
+    public void setCoinSet(CoinSet coinSet){
         this.coinSet = coinSet;
     }
 
     public String calculateChange(String input){
-        Integer change = processInput(input);
+        selectCurrency(input);
+        Integer change = extractChange(input);
 
         for(Map.Entry coin : coinSet.getCoinSet().entrySet()){
             int coinValue = (int)coin.getKey();
@@ -27,15 +30,21 @@ public class CoinCalculator {
     }
 
 
-    public StringBuilder createAnswer(StringBuilder answer, int div, String coinName){
+
+    private void selectCurrency(String input){
+        char currency = input.charAt(0);
+        setCoinSet(new CoinSetSelector().select(currency));
+    }
+
+    private Integer extractChange(String input){
+        input = input.replaceAll("\\D+","");
+        return Integer.parseInt(input.substring(input.length() - 3));
+    }
+
+    private StringBuilder createAnswer(StringBuilder answer, int div, String coinName){
         answer.append(div).append(" ").append(coinName);
         if(div > 1) answer.append("s");
         answer.append("\n");
         return answer;
-    }
-
-    public Integer processInput(String input){
-        input = input.replaceAll("\\D+","");
-        return Integer.parseInt(input.substring(input.length() - 3));
     }
 }

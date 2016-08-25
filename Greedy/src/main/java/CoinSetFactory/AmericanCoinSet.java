@@ -1,10 +1,12 @@
+package CoinSetFactory;
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.TreeMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class AmericanCoinSet implements CoinSet{
+public class AmericanCoinSet implements CoinSet {
     private Map<Integer, String> coinSet = new TreeMap<>(new ReverseComparator());
 
     public AmericanCoinSet(){

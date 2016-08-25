@@ -1,3 +1,5 @@
+package CoinSetFactory;
+
 import java.util.Map;
 
 public interface CoinSet {
