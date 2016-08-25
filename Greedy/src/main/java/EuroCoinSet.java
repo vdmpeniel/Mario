@@ -4,9 +4,6 @@ import java.util.TreeMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-/**
- * Created by Vic:D on 8/23/2016.
- */
 public class EuroCoinSet implements CoinSet{
     private Map<Integer, String> coinSet = new TreeMap<>(new ReverseComparator());
 
