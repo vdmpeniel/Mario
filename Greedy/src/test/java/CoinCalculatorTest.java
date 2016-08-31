@@ -1,5 +1,3 @@
-import CoinSetFactory.AmericanCoinSet;
-import CoinSetFactory.EuroCoinSet;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

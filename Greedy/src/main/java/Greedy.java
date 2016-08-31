@@ -1,9 +1,13 @@
 import java.util.Scanner;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Greedy {
     public static void main(String[] varArgs) {
         String input = promptCashier();
-        CoinCalculator coinCalculator = new CoinCalculator();
+
+        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        CoinCalculator coinCalculator = (CoinCalculator) context.getBean("coinCalculator");
         System.out.println(coinCalculator.calculateChange(input));
     }
 

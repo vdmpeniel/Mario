@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- A simple bean definition -->
+    <bean id="coinCalculator" class="CoinCalculator" scope = "prototype">
+    </bean>
+
+    <bean id="coinSetSelector" class="CoinSetFactory.CoinSetSelector" scope = "prototype">
+    </bean>
+
+    <bean id="euroCoinSet" class="CoinSetFactory.CoinSet" scope = "prototype">
+        <constructor-arg name = "coinSet">
+            <map>
+                <entry key = "200" value = "two euros coin"/>
+                <entry key = "100" value = "one euro coin"/>
+                <entry key = "50" value = "fifty euro cents coin"/>
+                <entry key = "20" value = "twenty euro cents coin"/>
+                <entry key = "10" value = "ten euro cents coin"/>
+                <entry key = "5" value = "five euro cents coin"/>
+                <entry key = "2" value = "two euro cents coin"/>
+                <entry key = "1" value = "one euro cent coin"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="americanCoinSet" class="CoinSetFactory.CoinSet" scope = "prototype">
+        <constructor-arg name = "coinSet">
+            <map>
+                <entry key = "100" value = "dollar"/>
+                <entry key = "25" value = "quarter"/>
+                <entry key = "10" value = "dime"/>
+                <entry key = "5" value = "nickel"/>
+                <entry key = "1" value = "penny"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+
+</beans>

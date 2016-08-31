@@ -1,5 +1,7 @@
 import CoinSetFactory.CoinSet;
 import CoinSetFactory.CoinSetSelector;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Map;
 public class CoinCalculator {
@@ -33,7 +35,10 @@ public class CoinCalculator {
 
     private void selectCurrency(String input){
         char currency = input.charAt(0);
-        setCoinSet(new CoinSetSelector().select(currency));
+
+        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        CoinSetSelector coinSetSelector = (CoinSetSelector) context.getBean("coinSetSelector");
+        setCoinSet(coinSetSelector.select(currency));
     }
 
     private Integer extractChange(String input){
