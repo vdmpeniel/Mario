@@ -1,20 +1,18 @@
 package CoinSetFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 public class CoinSetSelector {
 
     public CoinSet select(char currency){
-        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
         CoinSet coinSet = null;
-
         switch (currency){
-            case '$': coinSet = (CoinSet) context.getBean("americanCoinSet");
+            case '$': coinSet = new AmericanCoinSet();
             break;
-            case '€': coinSet = (CoinSet) context.getBean("euroCoinSet");
+            case '€': coinSet = new EuroCoinSet();
             break;
+            default: throw new IllegalArgumentException("Currency not defined");
         }
         return coinSet;
     }
 }
+

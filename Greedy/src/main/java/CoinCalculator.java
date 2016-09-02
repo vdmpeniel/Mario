@@ -1,7 +1,5 @@
 import CoinSetFactory.CoinSet;
 import CoinSetFactory.CoinSetSelector;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Map;
 public class CoinCalculator {
@@ -13,15 +11,15 @@ public class CoinCalculator {
     }
 
     public String calculateChange(String input){
-        selectCurrency(input);
+        extractCurrency(input);
         Integer change = extractChange(input);
 
-        for(Map.Entry coin : coinSet.getCoinSet().entrySet()){
-            int coinValue = (int)coin.getKey();
+        for(Map.Entry coin : coinSet.toMap().entrySet()) {
+            int coinValue = (int) coin.getKey();
             String coinName = (String) coin.getValue();
             int mod = change % coinValue;
 
-            if(mod < change) {
+            if (mod < change) {
                 int div = change / coinValue;
                 answer = createAnswer(answer, div, coinName);
                 change = mod;
@@ -31,14 +29,14 @@ public class CoinCalculator {
         return answer.toString().trim();
     }
 
-
-
-    private void selectCurrency(String input){
-        char currency = input.charAt(0);
-
-        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-        CoinSetSelector coinSetSelector = (CoinSetSelector) context.getBean("coinSetSelector");
-        setCoinSet(coinSetSelector.select(currency));
+    private void extractCurrency(String input){
+        char currency = input.trim().charAt(0);
+        try {
+            CoinSetSelector coinSetSelector = new CoinSetSelector();
+            setCoinSet(coinSetSelector.select(currency));
+        } catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     private Integer extractChange(String input){
